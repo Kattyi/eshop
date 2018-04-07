@@ -1,0 +1,80 @@
+.footer-copyright {
+    background-color: #404E4D;
+}
+
+footer a, nav a, nav a:hover {
+    color: #FFFFFF;
+}
+
+nav button {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+footer a:hover {
+    color: white;
+}
+
+footer hr {
+    background-color: #FFFFFF;
+}
+
+.page-footer, nav {
+    background-color: #A2A7A5;
+    color: #FFFFFF;
+}
+
+.fa-heart {
+    color: #996888;
+}
+
+.navbar-toggler {
+    border-color: transparent !important;
+}
+
+nav .form-control, input {
+    background-color: #A2A7A5;
+    border-color: #FFFFFF;
+}
+
+nav .form-control:focus::placeholder {
+    color: #A2A7A5;
+}
+
+nav .form-control:focus {
+    background-color: #FFFFFF;
+}
+
+nav .form-control::placeholder {
+    color: #FFFFFF;
+}
+
+.btn-search {
+    border: 1px solid white;
+}
+
+.dropdown-menu-custom {
+    border: none;
+    border-radius: 0;
+    margin-top: 1rem;
+    background-color: #A2A7A5;
+    min-width: min-content;
+}
+
+.dropdown-item-custom {
+    border-bottom: 1px solid #A2A7A5;
+}
+
+.dropdown-item-custom:focus, .dropdown-item-custom:hover {
+    background-color: #A2A7A5;
+    border-bottom: 1px solid white;
+}
+
+.my-custom-button {
+    color: #FFFFFF;
+    background-color: #404E4D;
+}
+
+.my-custom-button:hover {
+    color: white;
+}
