@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark px-md-4">
-    <a class="navbar-brand" href="{{ route('home') }}">
+    <a class="navbar-brand" href="{{ url('/') }}">
         <img src="{{ asset('images/footwear.svg') }}" alt="Logo" width="50" height="50">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,11 +50,6 @@
                     </div>
                 </form>
             </li>
-            <li>
-                <a href="checkout.html" class="btn">
-                    <i class="fas fa-shopping-bag"></i>
-                </a>
-            </li>
 
             <!-- Authentication Links -->
             @guest
@@ -79,6 +74,11 @@
                     </div>
                 </li>
             @endguest
+            <li>
+                <a href="checkout.html" class="btn">
+                    <i class="fas fa-shopping-bag"></i>
+                </a>
+            </li>
         </ul>
 
     </div>

@@ -12,11 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        if (Auth::user()->isAdmin()) {
+            return view('admin/home');
+        }
+        else {
+            return view('user/home');
+        }
+    }
+    return view('user/home');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@index');
-Route::get('/user', 'UserController@index');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/user', 'UserController@index')->name('user');
