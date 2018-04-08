@@ -14,17 +14,15 @@
 Route::get('/', function () {
     if (Auth::check()) {
         if (Auth::user()->isAdmin()) {
-            return view('admin/home');
+            return redirect()->route('products.index');
         }
         else {
-            return view('user/home');
+            return view('products/home');
         }
     }
-    return view('user/home');
+    return view('products/home');
 });
 
 Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/user', 'UserController@index')->name('user');
+Route::resource('products', 'ProductController');
+Route::get('/home','ProductController@user_index')->name('home');

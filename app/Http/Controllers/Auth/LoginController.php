@@ -24,10 +24,10 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->isAdmin()) {
-            return redirect()->route('admin');
+            return redirect()->route('products.index');
         }
         else {
-            return redirect()->route('user');
+            return redirect()->route('home');
         }
     }
 

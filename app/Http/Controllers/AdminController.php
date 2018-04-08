@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.home');
+        return redirect()->route('products.index');
     }
 
     public function __construct()
