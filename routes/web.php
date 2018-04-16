@@ -17,10 +17,10 @@ Route::get('/', function () {
             return redirect()->route('products.index');
         }
         else {
-            return view('products/home');
+            return redirect()->route('home');
         }
     }
-    return view('products/home');
+    return redirect()->route('home');
 });
 
 Auth::routes();

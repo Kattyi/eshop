@@ -33,7 +33,7 @@
 
             @foreach($products as $product)
                 <div class="col-sm-6 col-md-6 col-lg-4 my-2">
-                    <a href="product-detail.html" class="product-card">
+                    <a href="{{url('products', [$product->id])}}" class="product-card">
                         <div class="card">
                             <img class="card-img-top" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_2_1.jpg" alt="Card image cap">
                             <div class="card-body">
