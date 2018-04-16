@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('assets')
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 @endsection
 
 @section('content')
-    <div id="carouselExampleControls" class="carousel slide mt-5 mx-3 mx-sm-0" data-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide mt-5 mx-3 mx-sm-0 mt-4" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="First slide">
@@ -27,7 +27,7 @@
         </a>
     </div>
 
-    <div class="container">
+    <div class="container mb-4">
 
         <div class="row">
 
@@ -38,7 +38,7 @@
                             <img class="card-img-top" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_2_1.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h6 class="card-title">{{$product->name}}</h6>
-                                <p class="product_color">{{$product->color}}</p>
+                                <p class="product_color">{{$product->color->name}}</p>
                                 <p>€ {{$product->price}}</p>
                             </div>
                         </div>

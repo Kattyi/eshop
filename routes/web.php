@@ -26,3 +26,5 @@ Route::get('/', function () {
 Auth::routes();
 Route::resource('products', 'ProductController');
 Route::get('/home','ProductController@user_index')->name('home');
+Route::get('/collection','ProductController@collection');
+Route::get('/collection/{color}','ProductController@color_filter');

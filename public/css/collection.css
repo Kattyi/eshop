@@ -1,0 +1,36 @@
+body, html {
+    height: 100%;
+}
+
+aside {
+    background-color: #404E4D;
+}
+
+aside nav {
+     background-color: #404E4D;
+}
+
+.card h6, p {
+    margin-bottom: 0;
+}
+
+.card {
+    border: none;
+}
+
+.card-body {
+    padding: 0.25rem;
+}
+
+.product_color {
+    color: #999999;
+}
+
+.product-card {
+    color: black;
+}
+
+.product-card:hover {
+    text-decoration: none;
+    color: black;
+}

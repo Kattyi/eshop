@@ -25,7 +25,7 @@
                     <tr>
                         <th scope="row">{{$product->id}}</th>
                         <td><a href="/products/{{$product->id}}">{{$product->name}}</a></td>
-                        <td>{{$product->color}}</td>
+                        <td>{{$product->color->name}}</td>
                         <td>{{$product->price}}</td>
                         <td class="text-right">
                             <a href="{{ URL::to('products/' . $product->id . '/edit') }}" class="btn btn-primary mt-1"><i class="fas fa-pencil-alt"></i></a>

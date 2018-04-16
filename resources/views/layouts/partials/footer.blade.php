@@ -2,7 +2,7 @@
 
     <div class="container">
 
-        <div class="row pt-5 my-4 text-center d-flex justify-content-center">
+        <div class="row pt-5 mb-4 text-center d-flex justify-content-center">
 
             <div class="col-md-2 mb-3">
                 <h6 class="text-uppercase font-weight-bold">

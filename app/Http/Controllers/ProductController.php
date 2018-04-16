@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Color;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $colors = Color::all();
+
+        return view('products.create', compact('colors'));
     }
 
     /**
@@ -37,7 +40,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Product::create(['name' => $request->name,
-                                    'color' => $request->color,
+                                    'color_id' => $request->color,
                                     'price' => $request->price,
                                     'material' => $request->material]);
 
@@ -63,7 +66,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product', $product));
+        $colors = Color::all();
+
+        return view('products.edit', compact('product', $product, 'colors'));
     }
 
     /**
@@ -76,7 +81,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->name = $request->name;
-        $product->color = $request->color;
+        $product->color_id = $request->color;
         $product->price = $request->price;
         $product->material = $request->material;
         $product->save();
@@ -102,6 +107,22 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return view('products.home', compact('products', $products));
+    }
+
+    public function collection()
+    {
+        $colors = Color::all();
+        $products = Product::all();
+        return view('products.collection', compact('products', $products, 'colors'));
+    }
+
+    public function color_filter(Request $request, $color)
+    {
+
+        $colors = Color::all();
+        $selected_color = Color::where('name', $color)->first();
+        $products = Product::where('color_id', $selected_color->id)->get();
+        return view('products.collection', compact('products', $products, 'colors', 'selected_color'));
     }
 
 }

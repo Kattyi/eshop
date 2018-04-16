@@ -29,11 +29,12 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="{{$product->color}}" name="color" aria-label="Product color" aria-describedby="product">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="product-color">Model</span>
-                        </div>
-                    </div>
+                        <select class="custom-select mb-3" id="inlineFormCustomSelect" name="color">
+                            <option selected>{{$product->color->name}}</option>
+                            @foreach($colors as $color)
+                                <option value="{{$color->id}}">{{$color->name}}</option>
+                            @endforeach
+                        </select>
 
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" value="{{$product->price}}" name="price" aria-label="Product price" aria-describedby="product">

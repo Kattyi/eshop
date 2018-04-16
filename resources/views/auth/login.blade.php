@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('assets')
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
 @endsection
 
 @section('content')
-<div class="row h-75 justify-content-center align-items-center">
+<div class="row h-75 justify-content-center align-items-center py-4">
     <form class="form-signin text-center px-5" method="POST" action="{{ route('login') }}">
         @csrf
         <img class="my-4" src="images/footwear.svg" alt="" width="100" height="100">

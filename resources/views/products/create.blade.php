@@ -32,6 +32,13 @@
                         </div>
                     </div>
 
+                    <select class="custom-select mb-3" id="inlineFormCustomSelect" name="color">
+                        <option selected>Choose color</option>
+                        @foreach($colors as $color)
+                            <option value="{{$color->id}}">{{$color->name}}</option>
+                        @endforeach
+                    </select>
+
                     <div class="input-group mb-3">
                         <input type="number" step="0.01" class="form-control" name="price" aria-label="Product price" aria-describedby="product">
                         <div class="input-group-append">

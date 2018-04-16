@@ -18,7 +18,7 @@
             <div class="col-md-6 mt-3">
                 <div class="mx-3">
                     <h2>{{ $product->name }}</h2>
-                    <h4>{{ $product->color }}</h4>
+                    <h4>{{ $product->color->name }}</h4>
                     <p class="mb-5">{{ $product->price }} €</p>
                 </div>
 
