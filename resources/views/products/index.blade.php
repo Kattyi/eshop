@@ -14,6 +14,7 @@
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col" class="d-none d-lg-block">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Color</th>
                     <th scope="col">Price</th>
@@ -23,7 +24,8 @@
                 <tbody>
                 @foreach($products as $product)
                     <tr>
-                        <th scope="row">{{$product->id}}</th>
+                        <th>{{$product->id}}</th>
+                        <td class="d-none d-lg-block"><img src="{{ asset('storage/products-images/' . $product->images[0]->file) }}" alt="" width="50px"></td>
                         <td><a href="/products/{{$product->id}}">{{$product->name}}</a></td>
                         <td>{{$product->color->name}}</td>
                         <td>{{$product->price}}</td>

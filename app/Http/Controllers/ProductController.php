@@ -3,11 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Color;
+use App\Image;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',
+            ['except' => [
+                'show',
+                'user_index',
+                'collection',
+                'color_filter',
+                'gender',
+                'gender_color_filter',
+                'search']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +57,20 @@ class ProductController extends Controller
         $product = Product::create(['name' => $request->name,
                                     'color_id' => $request->color,
                                     'price' => $request->price,
-                                    'material' => $request->material]);
+                                    'material' => $request->material,
+                                    'gender' => $request->gender]);
+
+        $file = $request->image;
+
+        $fileName = $product->id . '-' . md5($file->getClientOriginalName()) .
+            time() . '.' . $file->getClientOriginalExtension();
+
+        $uploadedFile = $file->storeAs(config('app.products-images-path'), $fileName);
+
+        if ($uploadedFile)
+        {
+            Image::create(['file' => $fileName,'product_id' => $product->id]);
+        }
 
         return redirect('/products/');
     }
@@ -84,6 +112,7 @@ class ProductController extends Controller
         $product->color_id = $request->color;
         $product->price = $request->price;
         $product->material = $request->material;
+        $product->gender = $request->gender;
         $product->save();
         $request->session()->flash('message', 'Product successfully changed.');
 
@@ -98,6 +127,19 @@ class ProductController extends Controller
      */
     public function destroy(Request $request, Product $product)
     {
+        $images = $product->images;
+
+        foreach($images as $img)
+        {
+            $file = config('app.products-images-path') . $img->file;
+
+            if (Storage::exists($file))
+            {
+                Storage::delete($file);
+            }
+        }
+
+        $product->images()->delete();
         $product->delete();
         $request->session()->flash('message', 'Product was successfully deleted.');
         return redirect('products');
@@ -116,13 +158,36 @@ class ProductController extends Controller
         return view('products.collection', compact('products', $products, 'colors'));
     }
 
-    public function color_filter(Request $request, $color)
+    public function color_filter($color)
     {
 
         $colors = Color::all();
         $selected_color = Color::where('name', $color)->first();
         $products = Product::where('color_id', $selected_color->id)->get();
         return view('products.collection', compact('products', $products, 'colors', 'selected_color'));
+    }
+
+    public function gender($gender)
+    {
+        $colors = Color::all();
+        $products = Product::where('gender', Product::getGender($gender))->get();
+        return view('products.collection', compact('products', $products, 'colors', $colors, 'gender', $gender));
+    }
+
+    public function gender_color_filter($gender, $color)
+    {
+        $colors = Color::all();
+        $selected_color = Color::where('name', $color)->first();
+        $products = Product::where('color_id', $selected_color->id)->where('gender', Product::getGender($gender))->get();
+        return view('products.collection', compact('products', $products, 'colors', $colors, 'selected_color', $selected_color, 'gender', $gender));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $colors = Color::all();
+        $products= Product::where('name', 'ilike', '%' . $request->search . '%')->get();
+        return view('products.collection', compact('colors', $colors, 'products', $products, 'search', $search));
     }
 
 }

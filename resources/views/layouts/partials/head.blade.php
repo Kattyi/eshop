@@ -16,6 +16,7 @@
 <!-- Scripts -->
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/checkout.js') }}" defer></script>
 
 <!-- Fonts -->
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -23,6 +24,5 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/my-app.css') }}" rel="stylesheet">
-{{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 
 @yield('assets')

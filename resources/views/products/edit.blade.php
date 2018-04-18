@@ -5,14 +5,7 @@
         <div class="row mt-5">
             <div class="col-md-6">
 
-                <img class="d-block w-100 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-
-                <div>
-                    <img class="d-block w-25 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                    <img class="d-block w-25 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                    <img class="d-block w-25 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                    <img class="d-block w-25 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                </div>
+                <img class="d-block w-100 float-left" src="{{ asset('storage/products-images/' . $product->images[0]->file) }}" alt="">
 
             </div>
             <div class="col-md-6 mt-3 product-inputs">
@@ -28,11 +21,24 @@
                         </div>
                     </div>
 
+                    <select class="custom-select mb-3" id="inlineFormCustomSelect" name="gender">
+                        @if($product->gender == 0)
+                            <option value="0" selected>MAN</option>
+                            <option value="1">WOMAN</option>
+                        @else
+                            <option value="1" selected>WOMAN</option>
+                            <option value="0">MAN</option>
+                        @endif
+                    </select>
+
                     <div class="input-group mb-3">
                         <select class="custom-select mb-3" id="inlineFormCustomSelect" name="color">
-                            <option selected>{{$product->color->name}}</option>
                             @foreach($colors as $color)
-                                <option value="{{$color->id}}">{{$color->name}}</option>
+                                @if($color->id == $product->color->id)
+                                    <option value="{{$color->id}}" selected>{{$color->name}}</option>
+                                @else
+                                    <option value="{{$color->id}}">{{$color->name}}</option>
+                                @endif
                             @endforeach
                         </select>
 

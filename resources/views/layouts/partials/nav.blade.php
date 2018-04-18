@@ -10,28 +10,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/collection">COLLECTION</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    MAN
-                </a>
-                <div class="dropdown-menu dropdown-menu-custom text-center" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item dropdown-item-custom text-white" href="#">1</a>
-                    <a class="dropdown-item dropdown-item-custom text-white" href="#">2</a>
-                    <a class="dropdown-item dropdown-item-custom text-white" href="#">3</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    WOMAN
-                </a>
-                <div class="dropdown-menu dropdown-menu-custom text-center" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item dropdown-item-custom text-white" href="#">1</a>
-                    <a class="dropdown-item dropdown-item-custom text-white" href="#">2</a>
-                    <a class="dropdown-item dropdown-item-custom text-white" href="#">3</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="/Man">MAN</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SALE</a>
+                <a class="nav-link" href="/Woman">WOMAN</a>
             </li>
         </ul>
 
@@ -39,9 +22,9 @@
         <ul class="navbar-nav ml-auto">
 
             <li>
-                <form class="form-inline my-lg-0">
+                <form class="form-inline my-lg-0" action="/search" method="get">
                     <div class="input-group mr-3">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search">
                         <div class="input-group-append">
                             <button class="btn btn-search" type="submit">
                                 <i class="fas fa-search"></i>
@@ -75,7 +58,7 @@
                 </li>
             @endguest
             <li>
-                <a href="checkout.html" class="btn">
+                <a href="/checkout" class="btn">
                     <i class="fas fa-shopping-bag"></i>
                 </a>
             </li>

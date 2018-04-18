@@ -23,8 +23,16 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
+Route::get('/checkout', function () {
+    return view('checkout.checkout');
+});
+
 Auth::routes();
 Route::resource('products', 'ProductController');
 Route::get('/home','ProductController@user_index')->name('home');
 Route::get('/collection','ProductController@collection');
 Route::get('/collection/{color}','ProductController@color_filter');
+Route::get('/search', 'ProductController@search');
+Route::get('/{gender}','ProductController@gender');
+// TODO: make sure routes with parameters respond only to valid parameters
+Route::get('/{gender}/{color}','ProductController@gender_color_filter');

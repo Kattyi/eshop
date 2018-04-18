@@ -211,4 +211,6 @@ return [
 
     ],
 
+    'products-images-path' => 'public/products-images/',
+
 ];

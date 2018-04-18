@@ -4,16 +4,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-6">
-                <img class="d-block w-100" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                <div class="row mx-3">
-                    <div>
-                        <img class="d-block w-25 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                        <img class="d-block w-25 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                        <img class="d-block w-25 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                        <img class="d-block w-25 float-left" src="https://www.lanciottideverzi.com/images/articoli/max/695P_antik_cordovan_1_2.jpg" alt="">
-                    </div>
-                </div>
-
+                <img class="d-block w-100" src="{{ asset('storage/products-images/' . $product->images[0]->file) }}" alt="">
             </div>
             <div class="col-md-6 mt-3">
                 <div class="mx-3">

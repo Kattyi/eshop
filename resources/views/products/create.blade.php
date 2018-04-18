@@ -15,8 +15,17 @@
             </div>
             <div class="col-md-6 mt-3 product-inputs">
 
-                <form action="/products" method="post">
+                <form action="/products" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
+
+                    <div class="input-group mb-3">
+                        <div class="custom-file" id="customFile">
+                            <input type="file" name="image" class="custom-file-input" id="image" aria-describedby="product">
+                            <label class="custom-file-label" for="image"></label>
+                        </div>
+                    </div>
+
+                    <hr>
 
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="name" aria-label="Product name" aria-describedby="product">
@@ -25,12 +34,11 @@
                         </div>
                     </div>
 
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="color" aria-label="Product color" aria-describedby="product">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="product-color">Model</span>
-                        </div>
-                    </div>
+                    <select class="custom-select mb-3" id="inlineFormCustomSelect" name="gender">
+                        <option selected>Choose gender</option>
+                        <option value="0">MAN</option>
+                        <option value="1">WOMAN</option>
+                    </select>
 
                     <select class="custom-select mb-3" id="inlineFormCustomSelect" name="color">
                         <option selected>Choose color</option>
