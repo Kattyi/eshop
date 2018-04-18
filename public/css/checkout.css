@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+}
+
+.images-checkout {
+    -webkit-appearance: none !important;
+}
+
+.step a {
+    color: #404E4D;
+}
+
+.quantity-input {
+    max-width: 75px;
+}
+
+.first-product td {
+    border-top: none;
+}
+
+tbody tr td h4 {
+    display: inline;
+}
