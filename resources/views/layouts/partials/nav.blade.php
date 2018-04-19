@@ -58,8 +58,11 @@
                 </li>
             @endguest
             <li>
-                <a href="/checkout" class="btn">
-                    <i class="fas fa-shopping-bag"></i>
+                <a href="/checkout" class="nav-link">
+                    <span class="fa-layers fa-fw">
+                    <i class="fas fa-shopping-bag fa-2x" style="color: white"></i>
+                    <span class="fa-layers-text fa-inverse fa-2x mx-1" data-fa-transform="shrink-8 down-3" style="font-weight:900; color: #EE6F42;">2</span>
+                </span>
                 </a>
             </li>
         </ul>
