@@ -58,11 +58,11 @@
                 </li>
             @endguest
             <li>
-                <a href="/checkout" class="nav-link">
-                    <span class="fa-layers fa-fw">
-                    <i class="fas fa-shopping-bag fa-2x" style="color: white"></i>
-                    <span class="fa-layers-text fa-inverse fa-2x mx-1" data-fa-transform="shrink-8 down-3" style="font-weight:900; color: #EE6F42;">2</span>
-                </span>
+                <a href="{{ route('cart.index') }}" class="nav-link">
+                    Cart
+                    @if(Cart::count() > 0)
+                        <span style="display: inline-block; color: black; background-color: #EC6E41; border: 2px solid black; border-radius: 17px;" class="px-2 ml-2">{{ Cart::count() }}</span>
+                    @endif
                 </a>
             </li>
         </ul>

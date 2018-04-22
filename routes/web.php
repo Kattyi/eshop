@@ -11,6 +11,8 @@
 |
 */
 
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 Route::get('/', function () {
     if (Auth::check()) {
         if (Auth::user()->isAdmin()) {
@@ -23,15 +25,21 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('/checkout', function () {
-    return view('checkout.checkout');
-});
-
 Auth::routes();
+
 Route::resource('products', 'ProductController');
-Route::get('/home','ProductController@user_index')->name('home');
+
+Route::get('/empty', 'CartController@empty')->name('cart.empty');
+
+Route::get('/cart','CartController@index')->name('cart.index');
+Route::post('/cart','CartController@store')->name('cart.store');
+Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
+
+Route::post('/order','OrderController@store')->name('order.store')->middleware('auth');
+
 Route::get('/collection','ProductController@collection');
 Route::get('/collection/{color}','ProductController@color_filter');
+Route::get('/home','ProductController@user_index')->name('home');
 Route::get('/search', 'ProductController@search');
 Route::get('/{gender}','ProductController@gender');
 // TODO: make sure routes with parameters respond only to valid parameters

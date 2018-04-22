@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @endif
+
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-6">
@@ -25,7 +30,15 @@
 
                     </div>
                     <div class="col-12 mb-5">
-                        <button class="btn my-custom-button w-100"><i class="fas fa-shopping-bag mr-2"></i>Add to Bag</button>
+                        <form action="{{ route('cart.store') }}" method="POST">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="hidden" name="name" value="{{ $product->name }}">
+                            <input type="hidden" name="color" value="{{ $product->color->name }}">
+                            <input type="hidden" name="price" value="{{ $product->price }}">
+
+                            <button type="submit" class="btn my-custom-button w-100"><i class="fas fa-shopping-bag mr-2"></i>Add to Cart</button>
+                        </form>
                     </div>
                     <div class="col-12">
                         <ul class="product-description">
